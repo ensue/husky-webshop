@@ -6,9 +6,9 @@
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    margin: 10px 7.5px 10px;
+    margin: 0px 0px 1px 0px;
+    //margin: 10px 7.5px 10px;
     overflow: hidden;
-    font-family: 'Oswald', sans-serif;
   
     &:hover {
       cursor: pointer;
@@ -23,16 +23,16 @@
       }
     }
   
-    &.large {
-      height: 300px;
-    }
-    &:first-child {
-      margin-right: 0px;
-    }
+    // &.large {
+    //   height: 300px;
+    // }
+    // &:first-child {
+    //   margin-right: 0px;
+    // }
   
-    &:last-child {
-      margin-left: 0px;
-    }
+    // &:last-child {
+    //   margin-left: 0px;
+    // }
 
   
     .background-image {
@@ -55,8 +55,8 @@
       position: absolute;
   
       h2 {
-        font-weight: bold;
-        margin: 5px 20px 0px;
+        //font-weight: bold;
+        margin: 5px 15px 0px;
         font-size: 25px;
         color: #4a4a4a;
       }
