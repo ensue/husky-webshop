@@ -1,3 +1,5 @@
+import './categories.styles.scss'
+
 const App = () => {
   const categories = [
     {
@@ -26,16 +28,15 @@ const App = () => {
     <div className="categories-container">
       {categories.map(({ title }) => (
         <div className="category-container">
-          {/* {<img src="" alt="">} */}
+          <div className = ''></div>
           <div className="category-body-container">
             <h2>{title}</h2>
-            <p>Cennik</p>
+            <p>Przeglądaj</p>
           </div>
         </div>
       ))}
     </div>
   );
 
-  //Zestawy Szczotki Akcesoria Odkurzacze Elementy instalacji
 };
 export default App;
