@@ -1,57 +1,41 @@
 const App = () => {
+  const categories = [
+    {
+      id: 1,
+      title: "Zestawy",
+    },
+    {
+      id: 2,
+      title: "Szczotki",
+    },
+    {
+      id: 3,
+      title: "Akcesoria",
+    },
+    {
+      id: 4,
+      title: "Odkurzacze",
+    },
+    {
+      id: 5,
+      title: "Elementy instalacji",
+    },
+  ];
+
   return (
     <div className="categories-container">
-      <div className="category-container">
-        {
-          // <img src="" alt="">
-        }
+      {categories.map(({ title }) => (
         <div className="category-container">
-          <h2>Zestawy</h2>
-          <p>Przeglądaj</p>
+          {/* {<img src="" alt="">} */}
+          <div className="category-body-container">
+            <h2>{title}</h2>
+            <p>Cennik</p>
+          </div>
         </div>
-      </div>
-
-      <div className="category-container">
-        {
-          // <img src="" alt="">
-        }
-        <div className="category-container">
-          <h2>Szczotki</h2>
-          <p>Przeglądaj</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {
-          // <img src="" alt="">
-        }
-        <div className="category-container">
-          <h2>Akcesoria</h2>
-          <p>Przeglądaj</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {
-          // <img src="" alt="">
-        }
-        <div className="category-container">
-          <h2>Odkurzacze</h2>
-          <p>Przeglądaj</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {
-          // <img src="" alt="">
-        }
-        <div className="category-container">
-          <h2>Elementy instalacji</h2>
-          <p>Przeglądaj</p>
-        </div>
-      </div>
+      ))}
     </div>
   );
-};
 
+  //Zestawy Szczotki Akcesoria Odkurzacze Elementy instalacji
+};
 export default App;
