@@ -21,7 +21,7 @@ const Home = () => {
     },
     {
       id: 3,
-      title: "montaż",
+      title: "instalacja",
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/installation2.png",
         // "https://ensue.github.io/husky-webshop/public/resources/img/szufelka.png",
@@ -29,7 +29,7 @@ const Home = () => {
     },
     {
       id: 4,
-      title: "odkurzacze",
+      title: "jednostki centralne",
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/units1.png",
         //"https://ensue.github.io/husky-webshop/public/resources/img/qair.png",
@@ -37,7 +37,7 @@ const Home = () => {
     },
     {
       id: 5,
-      title: "PVC",
+      title: "przewody powietrzne",
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/pvc2.png",
         // "https://ensue.github.io/husky-webshop/public/resources/img/pvc.png",
