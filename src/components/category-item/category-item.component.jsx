@@ -12,7 +12,7 @@ const CategoryItem = ({ category: { imageUrl, title } }) => (
 
       <div className="category-body-container">
         <h2>{title}</h2>
-        <p>Przeglądaj</p>
+        <p>przeglądaj</p>
       </div>
     </div>
   </div>
