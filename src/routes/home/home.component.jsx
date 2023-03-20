@@ -9,7 +9,7 @@ const Home = () => {
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/vacuum1.png",
         // "https://ensue.github.io/husky-webshop/public/resources/img/zestaw.png",
-        "https://ensue.github.io/husky-webshop/src/assets/bw_kit.png",
+        "https://ensue.github.io/husky-webshop/src/assets/bw_kit.jpg",
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const Home = () => {
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/brush.png",
         // "https://ensue.github.io/husky-webshop/public/resources/img/zestawsp.png",
-        "https://ensue.github.io/husky-webshop/src/assets/bw_acc.png",
+        "https://ensue.github.io/husky-webshop/src/assets/bw_acc.jpg",
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ const Home = () => {
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/units1.png",
         //"https://ensue.github.io/husky-webshop/public/resources/img/qair.png",
-        "https://ensue.github.io/husky-webshop/src/assets/bw_unit.png",
+        "https://ensue.github.io/husky-webshop/src/assets/bw_unit.jpg",
     },
     {
       id: 5,
@@ -41,7 +41,7 @@ const Home = () => {
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/pvc2.png",
         // "https://ensue.github.io/husky-webshop/public/resources/img/pvc.png",
-        "https://ensue.github.io/husky-webshop/src/assets/bw_pvc.png",
+        "https://ensue.github.io/husky-webshop/src/assets/bw_pvc.jpg",
     },
   ];
 
