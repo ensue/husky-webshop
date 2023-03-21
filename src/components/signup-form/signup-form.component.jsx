@@ -1,32 +1,60 @@
 import { useState } from "react";
 
 const defaultFormFields = {
-    displayName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-}
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 const SignUpForm = () => {
-    const [formFields,setFormFields] = useState(defaultFormFields);
-    const {displayName, email, password, confirmPassword} = formFields;
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
-    const handleChange = (event)=>{
+  console.log(formFields);
 
-    };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
 
   return (
     <div>
       <h1>Zarejestruj</h1>
       <form onSubmit={() => {}}>
         <label>Nazwa użytkownika</label>
-        <input type="text" required onChange={handleChange}/>
+        <input
+          type="text"
+          required
+          onChange={handleChange}
+          name="displayName"
+          value={displayName}
+        />
         <label>Email</label>
-        <input type="email" required onChange={handleChange}/>
+        <input
+          type="email"
+          required
+          onChange={handleChange}
+          name="email"
+          value={email}
+        />
         <label>Hasło</label>
-        <input type="password" required onChange={handleChange}/>
+        <input
+          type="password"
+          required
+          onChange={handleChange}
+          name="password"
+          value={password}
+        />
         <label>Potwierdź hasło</label>
-        <input type="password" required onChange={handleChange}/>
+        <input
+          type="password"
+          required
+          onChange={handleChange}
+          name="confirmPassword"
+          value={confirmPassword}
+        />
         <button type="submit">Zarejestruj</button>
       </form>
     </div>
