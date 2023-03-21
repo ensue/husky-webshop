@@ -9,12 +9,6 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 const SignIn = () => {
-  useEffect(() => {
-    return async () => {
-      const response = await getRedirectResult(auth);
-      console.log(response);
-    }
-  }, [])
 
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
