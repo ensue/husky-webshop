@@ -43,6 +43,7 @@ const Home = () => {
         // "https://ensue.github.io/husky-webshop/public/resources/img/pvc.png",
         "https://ensue.github.io/husky-webshop/src/assets/bw_pvc.jpg",
     },
+
   ];
 
   return (
