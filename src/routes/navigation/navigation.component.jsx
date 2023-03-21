@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./navigation.styles.scss";
+import "../navigation/navigation.styles.scss"
 
 import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
 
