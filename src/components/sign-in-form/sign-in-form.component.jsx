@@ -38,7 +38,11 @@ const SignInForm = () => {
       );
       console.log(response);
       resetFormFields();
-    } catch (error) {}
+    } catch (error) {
+      if(error.code==='auth/wrong-password'||error.code==='auth/user-not-found'){
+        alert('Błędny email lub hasło');
+      }
+    }
   };
 
   const handleChange = (event) => {

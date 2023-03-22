@@ -4,8 +4,8 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.components";
-import './signup-form.styles.scss'
 import Button from "../button/button.component";
+import './signup-form.styles.scss'
 
 const defaultFormFields = {
   displayName: "",
@@ -26,7 +26,11 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("passwords do not match");
+      alert("Niezgodne hasła");
+      return;
+    }
+    if (password.length<6){
+      alert("Hasło musi mieć co najmniej 6 znaków")
       return;
     }
 
