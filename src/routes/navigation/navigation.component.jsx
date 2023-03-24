@@ -4,10 +4,15 @@ import "../navigation/navigation.styles.scss";
 
 import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
 import { UserContext } from "../../context/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
   return (
     <Fragment>
       <div className="navigation">
@@ -20,7 +25,9 @@ const Navigation = () => {
             SKLEP
           </Link>
           {currentUser ? (
-            <span className="nav-link">WYLOGUJ</span>
+            <span className="nav-link" onClick={signOutHandler}>
+              WYLOGUJ
+            </span>
           ) : (
             <Link className="nav-link" to="/auth">
               ZALOGUJ
