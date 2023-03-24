@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState } from "react";
 
-//actual value to access globally
+//value to access globally
 export const UserContext = createContext({
     currentUser: null,
     setCurrentUser: () => null,

@@ -1,12 +1,12 @@
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "../navigation/navigation.styles.scss"
+import "../navigation/navigation.styles.scss";
 
 import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
 import { UserContext } from "../../context/user.context";
 
 const Navigation = () => {
-  const {currentUser} = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   console.log(currentUser);
   return (
     <Fragment>
@@ -19,9 +19,13 @@ const Navigation = () => {
           <Link className="nav-link" to="/shop">
             SKLEP
           </Link>
-          <Link className="nav-link" to="/auth">
-            LOGIN
-          </Link>
+          {currentUser ? (
+            <span className="nav-link">WYLOGUJ</span>
+          ) : (
+            <Link className="nav-link" to="/auth">
+              ZALOGUJ
+            </Link>
+          )}
         </div>
       </div>
       <Outlet />
