@@ -5,9 +5,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.components";
 import Button from "../button/button.component";
-import './signup-form.styles.scss'
-import { UserContext } from "../../context/user.context";
- 
+import "./signup-form.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -20,12 +18,10 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const {setCurrentUser} = useContext(UserContext)
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,8 +30,8 @@ const SignUpForm = () => {
       alert("Niezgodne hasła");
       return;
     }
-    if (password.length<6){
-      alert("Hasło musi mieć co najmniej 6 znaków")
+    if (password.length < 6) {
+      alert("Hasło musi mieć co najmniej 6 znaków");
       return;
     }
 
@@ -44,11 +40,8 @@ const SignUpForm = () => {
         email,
         password
       );
-      
-      setCurrentUser(user);
-      
+
       await createUserDocumentFromAuth(user, { displayName });
-      
 
       resetFormFields();
     } catch (error) {
