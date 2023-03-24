@@ -1,10 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "../navigation/navigation.styles.scss"
+import "../navigation/navigation.styles.scss";
 
 import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
+import { UserContext } from "../../context/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const Navigation = () => {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
   return (
     <Fragment>
       <div className="navigation">
@@ -16,9 +24,15 @@ const Navigation = () => {
           <Link className="nav-link" to="/shop">
             SKLEP
           </Link>
-          <Link className="nav-link" to="/auth">
-            LOGIN
-          </Link>
+          {currentUser ? (
+            <span className="nav-link" onClick={signOutHandler}>
+              WYLOGUJ
+            </span>
+          ) : (
+            <Link className="nav-link" to="/auth">
+              ZALOGUJ
+            </Link>
+          )}
         </div>
       </div>
       <Outlet />
