@@ -2,31 +2,31 @@
     {
       "id": 1,
       "name": "Q Air Max",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.jpg",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
       "price": 3600
     },
     {
       "id": 2,
       "name": "Q Air 2",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.jpg",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
       "price": 3600
     },
     {
       "id": 3,
       "name": "Q Air 3",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.jpg",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
       "price": 3600
     },
     {
       "id": 4,
       "name": "Q Air 4",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.jpg",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
       "price": 3600
     },
     {
       "id": 5,
       "name": "Q Air 5",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.jpg",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
       "price": 3600
     }
   ]
