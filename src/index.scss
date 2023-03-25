@@ -1,25 +1,26 @@
 body {
-    margin: 0;
-  font-family: 'Oswald';
+  margin: 0;
+  padding: 20px 40px;
+  font-family: "Oswald";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-a{
+a {
   text-decoration: none;
   color: black;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
 html {
-  margin:    0 auto;
+  margin: 0 auto;
   min-width: 680px;
   max-width: 85%;
 }

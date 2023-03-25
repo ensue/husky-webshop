@@ -3,11 +3,7 @@ import Home from "./routes/home/home.component.jsx";
 import Navigation from "./routes/navigation/navigation.component.jsx";
 import Authentication from "./routes/authentication/authentication.component.jsx";
 import Shop from "./routes/shop/shop.component.jsx";
-
-
-
-
-
+import './index.scss';
 
 const App = () => {
   return (
