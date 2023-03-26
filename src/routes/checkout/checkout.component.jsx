@@ -1,28 +1,32 @@
-import "./checkout.styles.scss";
 import { useContext } from "react";
 import { CartContext } from "../../context/cart.context";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import "./checkout.styles.scss";
 
 const Checkout = () => {
-  const { cartItems } = useContext(CartContext);
-  const cartTotal = () => {
-    let sum = 0;
-    cartItems.forEach(({ price, quantity }) => {
-      sum += price * quantity;
-    });
-    return sum;
-  };
+  const { cartItems, cartTotal } = useContext(CartContext);
 
   return (
-    <div>
-      <div>
-        {cartItems.map((item) => (
-          <CheckoutItem key={item.id} checkoutItem={item} />
-        ))}
+    <div className="checkout-container">
+      <div className="checkout-header">
+        <div className="header-block">
+          <span>Produkt</span>
+        </div>
+        <div className="header-block"></div>
+        <div className="header-block">
+          <span>Ilość</span>
+        </div>
+        <div className="header-block">
+          <span>netto</span>
+        </div>
+        <div className="header-block">
+          <span>Usuń</span>
+        </div>
       </div>
-      <div>
-        <span>Łącznie: {cartTotal()}</span>
-      </div>
+      {cartItems.map((cartItem) => (
+        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+      ))}
+      <div className="total">{cartTotal} zł</div>
     </div>
   );
 };
