@@ -15,10 +15,12 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className="navigation">
-        <Link className="logo-container" to="/">
-          <HuskyLogo className="logo" />
-        </Link>
-
+        <div className="brand-container">
+          <Link className="logo-container" to="/">
+            <HuskyLogo className="logo" />
+          </Link>
+          <div className="name-header">Sklep Husky Polska</div>
+        </div>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
             SKLEP

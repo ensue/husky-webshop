@@ -1,32 +1,37 @@
 [
     {
       "id": 1,
-      "name": "Q Air Max",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
+      "name": "Jednostka Centralna Q Air Cyklon, 1850W",
+      "symbol": "QAC-UNIT",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_qair.png",
       "price": 3600
     },
     {
       "id": 2,
-      "name": "Q Air 2",
+      "name": "Zestaw Q Air Cyklon + akcesoria",
+      "symbol": "QAC-KIT",
       "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
-      "price": 3600
+      "price": 1200
     },
     {
       "id": 3,
-      "name": "Q Air 3",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
-      "price": 3600
+      "name": "Zestaw elementów instalacji",
+      "symbol": "H807-306",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_pvc.jpg",
+      "price": 500
     },
     {
       "id": 4,
-      "name": "Q Air 4",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
-      "price": 3600
+      "name": "Szczotka turbinowa szeroka",
+      "symbol": "PN200",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_acc.png",
+      "price": 120
     },
     {
       "id": 5,
-      "name": "Q Air 5",
-      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_kit.png",
-      "price": 3600
+      "name": "Zestaw akcesoriów",
+      "symbol": "PN200",
+      "imageUrl": "https://ensue.github.io/husky-webshop/src/assets/or_acc2.png",
+      "price": 300
     }
   ]

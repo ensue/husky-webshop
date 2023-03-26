@@ -12,15 +12,20 @@ const Checkout = () => {
         <div className="header-block">
           <span>Produkt</span>
         </div>
-        <div className="header-block"></div>
-        <div className="header-block">
-          <span>Ilość</span>
-        </div>
-        <div className="header-block">
-          <span>netto</span>
-        </div>
-        <div className="header-block">
-          <span>Usuń</span>
+
+        <div className="symbol-qty-price-remove">
+          <div className="header-block">
+            <span>Kod</span>
+          </div>
+          <div className="header-block">
+            <span>Ilość</span>
+          </div>
+          <div className="header-block">
+            <span>Cena netto</span>
+          </div>
+          <div className="header-block">
+            <span>Usuń</span>
+          </div>
         </div>
       </div>
       {cartItems.map((cartItem) => (

@@ -6,12 +6,33 @@
   justify-content: space-between;
   margin-bottom: 1px;
 
+.brand-container{
+  margin-right: 25px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+
   .logo-container {
-    margin-left: 30px;
+    margin-left: 2%;
     height: 100%;
-    width: 120px;
+    min-width: 100px;
+    width: 100px;
     padding: 8px;
   }
+  
+  .name-header{
+    margin-left: 2%;
+    padding: 30px;
+    font-weight: 200;
+    font-size: 28px;
+    font-family: 'Montserrat';
+    text-align: center;
+    white-space: nowrap;
+
+  }
+}
 
   .nav-links-container {
     margin-right: 25px;
