@@ -1,12 +1,20 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
-import "../navigation/navigation.styles.scss";
+import { Outlet } from "react-router-dom";
+// import "../navigation/navigation.styles.scss";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown-component";
 
 import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
 import { UserContext } from "../../context/user.context";
 import { CartContext } from "../../context/cart.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import {
+  NavigationContainer,
+  NavLinks,
+  NavLink,
+  LogoContainer,
+  ShopName,
+} from './navigation.styles'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
@@ -14,30 +22,29 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className="navigation">
-        <div className="brand-container">
-          <Link className="logo-container" to="/">
-            <HuskyLogo className="logo" />
-          </Link>
-          <div className="name-header">Sklep Husky Polska</div>
-        </div>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-            SKLEP
-          </Link>
+      <NavigationContainer>
+        <LogoContainer to='/'>
+          <HuskyLogo className='logo' />    
+          <span className="name-header">Sklep Husky Polska</span>      
+        </LogoContainer>
+
+        <NavLinks>
+          <NavLink to='/shop'>SKLEP</NavLink>
+
           {currentUser ? (
-            <span className="nav-link">WYLOGUJ</span>
+            <NavLink as='span' onClick={signOutUser}>
+              WYLOGUJ
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
-              ZALOGUJ
-            </Link>
+            <NavLink to='/auth'>ZALOGUJ</NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinks>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );
 };
+
 export default Navigation;
