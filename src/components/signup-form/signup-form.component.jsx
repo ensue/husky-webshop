@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
+import { useState} from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.components";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import "./signup-form.styles.scss";
+import { SignUpContainer } from './signup-form.styles'
 
 const defaultFormFields = {
   displayName: "",
@@ -17,7 +17,6 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -46,9 +45,9 @@ const SignUpForm = () => {
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        alert("Email is already in use");
+        alert("Ten adres email jest niedostępny");
       } else {
-        console.log("User creation encountered an error", error);
+        console.log("Tworzenie użytkownika zakończone niepowodzeniem", error);
       }
     }
   };
@@ -60,7 +59,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signup-form-container">
+    <SignUpContainer>
       <h2>Załóż konto</h2>
       <span>Zarejestruj adresem email</span>
       <form onSubmit={handleSubmit}>
@@ -72,6 +71,7 @@ const SignUpForm = () => {
           name="displayName"
           value={displayName}
         />
+
         <FormInput
           label="Email"
           type="email"
@@ -80,6 +80,7 @@ const SignUpForm = () => {
           name="email"
           value={email}
         />
+
         <FormInput
           label="Hasło"
           type="password"
@@ -88,6 +89,7 @@ const SignUpForm = () => {
           name="password"
           value={password}
         />
+
         <FormInput
           label="Potwierdź hasło"
           type="password"
@@ -98,7 +100,7 @@ const SignUpForm = () => {
         />
         <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.base}>Zarejestruj</Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import {  
-  createUserDocumentFromAuth,
+  //createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 //import Button from "../button/button.component";
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from "../form-input/form-input.components";
-import "./sign-in-form.styles.scss";
-
+import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 
 
 
@@ -52,36 +51,41 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  return (
-    <div className="sign-in-form-container">
-      <h2>Zaloguj do istniejącego konta</h2>
-      <span>Zaloguj adresem email</span>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Email"
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
-        />
-        <FormInput
-          label="Hasło"
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
-        />
-        <div className="buttons-container">
-          <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.base}>Zaloguj</Button>
-          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>
-            Zaloguj z Google
-          </Button>
-        </div>
-      </form>
-    </div>
-  );
+return (
+  <SignInContainer>
+    <h2>Zaloguj do istniejącego konta</h2>
+    <span>Zaloguj adresem email</span>
+    <form onSubmit={handleSubmit}>
+      <FormInput
+        label='Email'
+        type='email'
+        required
+        onChange={handleChange}
+        name='email'
+        value={email}
+      />
+
+      <FormInput
+        label='Hasło'
+        type='password'
+        required
+        onChange={handleChange}
+        name='password'
+        value={password}
+      />
+      <ButtonsContainer>
+        <Button type='submit'>Zaloguj</Button>
+        <Button
+          buttonType={BUTTON_TYPE_CLASSES.google}
+          type='button'
+          onClick={signInWithGoogle}
+        >
+          Zaloguj z Google
+        </Button>
+      </ButtonsContainer>
+    </form>
+  </SignInContainer>
+);
 };
 
 export default SignInForm;
