@@ -40,7 +40,7 @@ export const Body = styled.div`
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
   max-width: 100%;
-  min-height: 500px;
+  min-height: 400px;
   max-height: 100%;
   flex: 1 1 auto;
   display: flex;
