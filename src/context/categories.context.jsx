@@ -21,9 +21,9 @@ export const CategoriesProvider = ({ children }) => {
   }, []);
   
   //import SHOP_DATA to firestore once
-  useEffect(()=>{
-    addCollectionAndDocuments('categories',SHOP_DATA);
-  }, [])
+  // useEffect(()=>{
+  //   addCollectionAndDocuments('categories',SHOP_DATA);
+  // }, [])
 
   const value = { categoriesMap };
 
