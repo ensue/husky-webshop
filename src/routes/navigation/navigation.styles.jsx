@@ -6,10 +6,11 @@ export const NavigationContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: left;
-  margin-bottom: 25px;
+  margin: 10px 0 20px 5px;
 `;
 
 export const LogoContainer = styled(Link)`
+  
   margin-left: 2%;
   width: 100%;
   height: 100%;
@@ -22,7 +23,7 @@ export const LogoContainer = styled(Link)`
   .name-header {
     width: 50%;
     margin-left: 5%;
-    padding: 30px 0 0 0px;
+    padding: 27px 0 0 0px;
     font-weight: 200;
     font-size: 28px;
     font-family: "Montserrat";
