@@ -4,7 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.components";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import "./signup-form.styles.scss";
 
 const defaultFormFields = {
@@ -96,7 +96,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button type="submit">Zarejestruj</Button>
+        <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.base}>Zarejestruj</Button>
       </form>
     </div>
   );
