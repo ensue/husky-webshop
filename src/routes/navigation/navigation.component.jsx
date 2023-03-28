@@ -13,7 +13,6 @@ import {
   NavLinks,
   NavLink,
   LogoContainer,
-  ShopName,
 } from './navigation.styles'
 
 const Navigation = () => {
@@ -29,7 +28,7 @@ const Navigation = () => {
         </LogoContainer>
 
         <NavLinks>
-          <NavLink to='/shop'>SKLEP</NavLink>
+          <NavLink to='/sklep'>SKLEP</NavLink>
 
           {currentUser ? (
             <NavLink as='span' onClick={signOutUser}>

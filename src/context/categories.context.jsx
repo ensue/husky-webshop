@@ -20,7 +20,7 @@ export const CategoriesProvider = ({ children }) => {
     getCategoriesMap();
   }, []);
   
-  // import SHOP_DATA to firestore once
+  //import SHOP_DATA to firestore once
   useEffect(()=>{
     addCollectionAndDocuments('categories',SHOP_DATA);
   }, [])
