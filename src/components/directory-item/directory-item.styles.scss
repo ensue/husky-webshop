@@ -1,4 +1,4 @@
-.category-container {
+.directory-item-container {
   min-width: 30%;
   max-width: 1000%;
   height: 380px;
@@ -22,7 +22,7 @@
       
     }
 
-    & .category-body-container {
+    & .body {
       opacity: 0.87;
       transition: opacity 0.55s;
       
@@ -48,7 +48,7 @@
     transition: transform 4s ease-out;
   }
 
-  .category-body-container {  
+  .body {  
 
     height: 110px;
     padding: 10px 30px;
