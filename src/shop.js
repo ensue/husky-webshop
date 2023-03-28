@@ -210,7 +210,7 @@ const SHOP_DATA = [
       ],
     },
     {
-      title: 'Montaż',
+      title: 'Instalacja',
       items: [
         {
           id: 30,

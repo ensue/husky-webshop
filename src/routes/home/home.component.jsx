@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Directory from "../../components/directory/directory-component";
+import Directory from "../../components/directory/directory.component";
 
 const Home = () => {
   const categories = [
@@ -21,7 +21,7 @@ const Home = () => {
     },
     {
       id: 3,
-      title: "instalacja",
+      title: "Instalacja",
       imageUrl:
         // "https://ensue.github.io/husky-webshop/public/resources/img/installation2.png",
         // "https://ensue.github.io/husky-webshop/public/resources/img/szufelka.png",
