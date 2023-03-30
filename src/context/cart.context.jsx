@@ -1,6 +1,5 @@
 import { createContext, useState, useReducer } from "react";
 import { createAction } from "../utils/reducer/reducer.utils";
-import logger from "use-reducer-logger";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -63,7 +62,7 @@ const INITIAL_STATE = {
 
 const cartReducer = (state, action) => {
   const { type, payload } = action;
-
+  
   switch (type) {
     case CART_ACTION_TYPES.SET_CART_ITEMS:
       return {
