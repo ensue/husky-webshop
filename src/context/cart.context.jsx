@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect, useReducer } from 'react';
-import { createAction } from '../utils/reducer/reducer.utils';
+import { createContext, useState, useReducer } from "react";
+import { createAction } from "../utils/reducer/reducer.utils";
+import logger from "use-reducer-logger";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -36,7 +37,6 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 };
 
-
 // export const CartContext = createContext({
 //   isCartOpen: false,
 //   setIsCartOpen: () => {},
@@ -48,10 +48,10 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 //   cartTotal: 0,
 // });
 const CART_ACTION_TYPES = {
-  SET_IS_CART_OPEN: 'SET_IS_CART_OPEN',
-  SET_CART_ITEMS: 'SET_CART_ITEMS',
-  SET_CART_COUNT: 'SET_CART_COUNT',
-  SET_CART_TOTAL: 'SET_CART_TOTAL',
+  SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
+  SET_CART_ITEMS: "SET_CART_ITEMS",
+  SET_CART_COUNT: "SET_CART_COUNT",
+  SET_CART_TOTAL: "SET_CART_TOTAL",
 };
 
 const INITIAL_STATE = {
