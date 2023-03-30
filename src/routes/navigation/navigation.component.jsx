@@ -1,41 +1,43 @@
 import { Fragment, useContext } from "react";
 import { Outlet } from "react-router-dom";
-// import "../navigation/navigation.styles.scss";
+import { useSelector } from "react-redux";
+
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown-component";
 
-import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
-import { UserContext } from "../../context/user.context";
 import { CartContext } from "../../context/cart.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
+
+import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
   NavigationContainer,
   NavLinks,
   NavLink,
   LogoContainer,
-} from './navigation.styles'
+} from "./navigation.styles";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
       <NavigationContainer>
-        <LogoContainer to='/'>
-          <HuskyLogo className='logo' />    
-          <span className="name-header">Sklep Husky Polska</span>      
+        <LogoContainer to="/">
+          <HuskyLogo className="logo" />
+          <span className="name-header">Sklep Husky Polska</span>
         </LogoContainer>
 
         <NavLinks>
-          <NavLink to='/sklep'>SKLEP</NavLink>
+          <NavLink to="/sklep">SKLEP</NavLink>
 
           {currentUser ? (
-            <NavLink as='span' onClick={signOutUser}>
+            <NavLink as="span" onClick={signOutUser}>
               WYLOGUJ
             </NavLink>
           ) : (
-            <NavLink to='/auth'>ZALOGUJ</NavLink>
+            <NavLink to="/auth">ZALOGUJ</NavLink>
           )}
           <CartIcon />
         </NavLinks>
