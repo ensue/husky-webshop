@@ -3,7 +3,7 @@ import { useState, useEffect, Fragment } from "react";
 import { useSelector } from "react-redux";
 import ProductCard from "../../components/product-card/product-card.component";
 import { CategoryContainer, Title } from "./category.styles";
-import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { selectCategoriesMap } from "../../store/categories/categories.selector";
 
 const Category = () => {
   const { category } = useParams();
