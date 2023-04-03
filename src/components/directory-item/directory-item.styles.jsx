@@ -39,6 +39,7 @@ export const Body = styled.div`
 
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
+  min-width: 300px;
   max-width: 100%;
   min-height: 400px;
   max-height: 100%;
