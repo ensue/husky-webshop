@@ -7,7 +7,7 @@ import { CategoryContainer, Title } from "./category.styles";
 import {
   selectCategoriesMap,
   selectIsLoading,
-} from '../../store/categories/categories.selector';
+} from '../../store/categories/category.selector'
 
 
 const Category = () => {
