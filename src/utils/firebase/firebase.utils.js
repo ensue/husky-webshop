@@ -20,6 +20,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 
+// import SHOP_DATA from '../../shop';
+
 const firebaseConfig = {
   apiKey: "AIzaSyDWr1PRaNcIgsi1i2orkewTzulTJgEbRkc",
   authDomain: "husky-webshop.firebaseapp.com",
@@ -62,8 +64,10 @@ export const addCollectionAndDocuments = async (
   console.log("done adding collection and documents to firestore");
 };
 
+// addCollectionAndDocuments("collections", SHOP_DATA);
+
 export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+  const collectionRef = collection(db, "categories");
   const q = query(collectionRef);
 
   //await Promise.reject(new Error('new error'))
@@ -121,12 +125,13 @@ export const onAuthStateChangedListener = (callback) => {
 //redux-saga based user authentication
 
 export const getCurrentUser = () => {
-  return new Promise((resolve,reject)=>{
+  return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
-      auth,(userAuth)=>{
+      auth,
+      (userAuth) => {
         unsubscribe();
       },
       reject
-    )
-  })
-}
+    );
+  });
+};
