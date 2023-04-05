@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithRedirect,
@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "firebase/auth";
+} from 'firebase/auth';
 import {
   getFirestore,
   doc,
@@ -18,9 +18,7 @@ import {
   writeBatch,
   query,
   getDocs,
-} from "firebase/firestore";
-
-// import SHOP_DATA from '../../shop';
+} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDWr1PRaNcIgsi1i2orkewTzulTJgEbRkc",
@@ -37,7 +35,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const auth = getAuth();
@@ -50,7 +48,8 @@ export const db = getFirestore();
 
 export const addCollectionAndDocuments = async (
   collectionKey,
-  objectsToAdd
+  objectsToAdd,
+  field
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -61,18 +60,15 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("done adding collection and documents to firestore");
+  console.log('done');
 };
 
-// addCollectionAndDocuments("collections", SHOP_DATA);
-
 export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, "categories");
+  const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
-  //await Promise.reject(new Error('new error'))
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((doc) => doc.data());
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (
@@ -81,7 +77,7 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, "users", userAuth.uid);
+  const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -97,11 +93,11 @@ export const createUserDocumentFromAuth = async (
         ...additionalInformation,
       });
     } catch (error) {
-      console.log("error creating the user", error.message);
+      console.log('error creating the user', error.message);
     }
   }
 
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -118,11 +114,8 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => {
+export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
-};
-
-//redux-saga based user authentication
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -130,6 +123,7 @@ export const getCurrentUser = () => {
       auth,
       (userAuth) => {
         unsubscribe();
+        resolve(userAuth);
       },
       reject
     );
