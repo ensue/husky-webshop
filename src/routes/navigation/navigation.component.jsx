@@ -10,7 +10,6 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutStart } from "../../store/user/user.action.js";
 
 import { ReactComponent as HuskyLogo } from "../../assets/logo_husky.svg";
-import { signOutStart } from "../../store/user/user.action.js"; 
 import {
   NavigationContainer,
   NavLinks,
