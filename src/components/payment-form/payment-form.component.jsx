@@ -5,23 +5,38 @@ import { PaymentFormContainer, FormContainer } from "./payment-form.styles";
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  
-  const paymentHandler = async (e) =>{
+
+  const paymentHandler = async (e) => {
     e.preventDefault();
-    if(!stripe || !elements) {
+    if (!stripe || !elements) {
       return;
     }
 
-    
+    const response = await fetch("/.netlify/functions/create-payment-intent", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount: 10000 }),
+    }).then((res) => res.json());
 
-  }
+    const {
+      paymentIntent: { client_secret },
+    } = response;
 
+    const paymentResult = await stripe.confirmCardPayment(client_secret, {
+      payment_method: { card: elements.getElement(CardElement) },
+    });
+  };
 
   return (
-    <div>
-      <CardElement />
-      <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>Zapłać</Button>
-    </div>
+    <PaymentFormContainer>
+      <FormContainer onSubmit={paymentHandler}>
+        <h2>Płatność kartą:</h2>
+        <CardElement />
+        <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>Zapłać</Button>
+      </FormContainer>
+    </PaymentFormContainer>
   );
 };
 
