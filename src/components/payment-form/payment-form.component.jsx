@@ -64,7 +64,7 @@ const PaymentForm = () => {
           buttonType={BUTTON_TYPE_CLASSES.inverted}
           isLoading={isProcessingPayment}
         >
-          Pay Now
+          Zapłać
         </PaymentButton>
       </FormContainer>
     </PaymentFormContainer>
