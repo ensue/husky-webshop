@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+
 import FormInput from "../form-input/form-input.components";
-import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import Button from "../button/button.component";
+
 import { SignUpContainer } from "./signup-form.styles";
 import { signUpStart } from "../../store/user/user.action";
 
@@ -25,32 +24,27 @@ const SignUpForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Niezgodne hasła");
-      return;
-    }
-    if (password.length < 6) {
-      alert("Hasło musi mieć co najmniej 6 znaków");
+      alert("passwords do not match");
       return;
     }
 
     try {
       dispatch(signUpStart(email, password, displayName));
-
       resetFormFields();
     } catch (error) {
-      if (error.code === "auth/email-already-in-use") {
-        alert("Ten adres email jest niedostępny");
+      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
+        alert("Cannot create user, email already in use");
       } else {
-        console.log("Tworzenie użytkownika zakończone niepowodzeniem", error);
+        console.log("user creation encountered an error", error);
       }
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
@@ -58,11 +52,11 @@ const SignUpForm = () => {
 
   return (
     <SignUpContainer>
-      <h2>Załóż konto</h2>
-      <span>Zarejestruj adresem email</span>
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          label="Nazwa użytkownika"
+          label="Display Name"
           type="text"
           required
           onChange={handleChange}
@@ -80,7 +74,7 @@ const SignUpForm = () => {
         />
 
         <FormInput
-          label="Hasło"
+          label="Password"
           type="password"
           required
           onChange={handleChange}
@@ -89,16 +83,14 @@ const SignUpForm = () => {
         />
 
         <FormInput
-          label="Potwierdź hasło"
+          label="Confirm Password"
           type="password"
           required
           onChange={handleChange}
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.base}>
-          Zarejestruj
-        </Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </SignUpContainer>
   );
