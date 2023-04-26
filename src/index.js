@@ -3,16 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 
-
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { Elements } from "@stripe/react-stripe-js";
-import { stripePromise } from '../src/utils/stripe/stripe.utils'
-
+import { stripePromise } from "../src/utils/stripe/stripe.utils";
 import { store, persistor } from "./store/store";
 
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,6 +25,7 @@ root.render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
-  
+  </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
