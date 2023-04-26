@@ -3,12 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { Routes, Route } from "react-router-dom";
 import Spinner from "./components/spinner/spinner.component";
-// import Home from "./routes/home/home.component";
-// import Navigation from "./routes/navigation/navigation.component";
-// import Authentication from "./routes/authentication/authentication.component";
-// import Shop from "./routes/shop/shop.component";
-// import Checkout from "./routes/checkout/checkout.component";
 import { checkUserSession } from "./store/user/user.action";
+import { GlobalStyle } from "./global.styles";
 
 import { addCollectionAndDocuments } from "./utils/firebase/firebase.utils";
 import SHOP_DATA from "./shop";
@@ -36,14 +32,16 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<Home />} />
-          <Route path="sklep/*" element={<Shop />} />
-          <Route path="auth" element={<Authentication />} />
-          <Route path="koszyk" element={<Checkout />} />
-        </Route>
-      </Routes>
+      <GlobalStyle>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path="sklep/*" element={<Shop />} />
+            <Route path="auth" element={<Authentication />} />
+            <Route path="koszyk" element={<Checkout />} />
+          </Route>
+        </Routes>
+      </GlobalStyle>
     </Suspense>
   );
 };
