@@ -30,9 +30,9 @@ const App = () => {
     dispatch(checkUserSession());
   }, []);
 
-  useEffect(() => {;
-    addCollectionAndDocuments("categories", SHOP_DATA);
-  }, []);
+  // useEffect(() => {;
+  //   addCollectionAndDocuments("categories", SHOP_DATA);
+  // }, []);
 
   return (
     <Suspense fallback={<Spinner />}>
